@@ -2,6 +2,33 @@
 <s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
 					   xmlns:s="library://ns.adobe.com/flex/spark" 
 					   xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:tree="tree.*">
-	<tree:MyTree width="100%" height="100%"/>
-
+	
+	<fx:Script>
+		<![CDATA[
+			protected function onLeft(event:MouseEvent):void
+			{
+				treee.onLeft();
+			}
+			
+			protected function onRight(event:MouseEvent):void
+			{
+				treee.onRight();
+			}
+			
+			protected function onBack(event:MouseEvent):void
+			{
+				treee.onBack();	
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<tree:MyTree id="treee" width="100%" height="100%"/>
+	
+	<s:HGroup width="100%" bottom="0">
+		<s:Button label="&lt;" click="onLeft(event)"/>
+		<s:Button label="back" click="onBack(event)"/>
+		<s:Button label="&gt;" click="onRight(event)"/>
+	</s:HGroup>  
+	
 </s:WindowedApplication>

@@ -1,6 +1,8 @@
 package tree
 {
 	
+	import flash.events.Event;
+	
 	import mx.core.UIComponent;
 	import mx.graphics.SolidColor;
 	
@@ -53,6 +55,7 @@ package tree
 			if(!rootNode)
 			{
 				rootNode = new MyNode();
+				rootNode.selected = true;
 				group.addElement(rootNode);
 			}
 			if(!INode)
@@ -123,6 +126,36 @@ package tree
 			
 			return result;
 		}
+
+		//----------- logic ----------------
 		
+		public function onLeft():void {
+			if(rootNode.selected) {
+				rootNode.watched = true;
+				rootNode.selected = false;
+				INode.selected = true;
+			}
+		}
+		
+		public function onRight():void {
+			if(rootNode.selected) {
+				rootNode.watched = true;
+				rootNode.selected = false;
+				IINode.selected = true;
+			}
+		}
+		
+		public function onBack():void {
+			if(INode.selected) {
+				INode.watched = true;
+				INode.selected = false;
+				rootNode.selected = true;
+			}
+			if(IINode.selected) {
+				IINode.watched = true;
+				IINode.selected = false;
+				rootNode.selected = true;
+			}
+		}
 	}
 }
