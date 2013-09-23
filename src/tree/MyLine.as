@@ -27,9 +27,9 @@ package tree
 				removeChild(line);
 			}
 			line = new Sprite();
-			line.graphics.lineStyle(1);
+			line.graphics.lineStyle(3);
 			line.graphics.moveTo(0, 0);
-			line.graphics.lineTo((toLeft?width:-width), height);
+			line.graphics.lineTo((toLeft?unscaledWidth:-unscaledWidth), unscaledHeight);
 			line.width = unscaledWidth;
 			line.height = unscaledHeight;
 			this.addChild(line);
